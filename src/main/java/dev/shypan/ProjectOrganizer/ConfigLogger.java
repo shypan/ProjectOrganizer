@@ -20,11 +20,12 @@ public class ConfigLogger {
     @Value("${DB_CLUSTER:NOT_FOUND}")
     private String cluster;
 
-//    @PostConstruct
-//    public void logEnvVars() {
-//        System.out.println("DB_DATABASE: " + database);
-//        System.out.println("DB_USER: " + user);
-//        System.out.println("DB_PASSWORD: " + password);
-//        System.out.println("DB_CLUSTER: " + cluster);
-//    }
+    @PostConstruct
+    public void logEnvVars() {
+   	
+        System.out.println("DB_DATABASE: " + database);
+        System.out.println("DB_USER: " + user);
+        System.out.println("DB_PASSWORD: " + password);
+        System.out.println("DB_CLUSTER: " + cluster);
+    }
 }
