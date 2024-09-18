@@ -20,6 +20,7 @@ public class Task {
 	private String taskName;
 	private LocalDateTime dateCreated;
 	private LocalDateTime dateCompleted;
+	private LocalDateTime dateUpdated;
 	private List<Integer> subTasks;
 	private List<String> task_images;
 	private List<Integer> tags;
@@ -104,6 +105,14 @@ public class Task {
 	}
 	public void setAge(LocalDateTime age) {
 		this.age = age;
+	}
+
+	public LocalDateTime getDateUpdated() {
+		return dateUpdated;
+	}
+
+	public void setDateUpdated(LocalDateTime dateUpdated) {
+		this.dateUpdated = dateUpdated;
 	}
 	
 	
