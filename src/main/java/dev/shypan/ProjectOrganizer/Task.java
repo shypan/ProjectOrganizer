@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,9 +22,9 @@ public class Task {
 	private LocalDateTime dateCreated;
 	private LocalDateTime dateCompleted;
 	private LocalDateTime dateUpdated;
-	private List<Integer> subTasks;
+	private List<ObjectId> subTasks;
 	private List<String> task_images;
-	private List<Integer> tags;
+	private List<ObjectId> tags;
 	private Integer points;
 	private boolean alertOn;
 	private String description;
@@ -64,10 +65,10 @@ public class Task {
 	public void setDateCompleted(LocalDateTime dateCompleted) {
 		this.dateCompleted = dateCompleted;
 	}
-	public List<Integer> getSubTasks() {
+	public List<ObjectId> getSubTasks() {
 		return subTasks;
 	}
-	public void setSubTasks(List<Integer> subTasks) {
+	public void setSubTasks(List<ObjectId> subTasks) {
 		this.subTasks = subTasks;
 	}
 	public List<String> getTask_images() {
@@ -76,10 +77,10 @@ public class Task {
 	public void setTask_images(List<String> task_images) {
 		this.task_images = task_images;
 	}
-	public List<Integer> getTags() {
+	public List<ObjectId> getTags() {
 		return tags;
 	}
-	public void setTags(List<Integer> tags) {
+	public void setTags(List<ObjectId> tags) {
 		this.tags = tags;
 	}
 	public Integer getPoints() {

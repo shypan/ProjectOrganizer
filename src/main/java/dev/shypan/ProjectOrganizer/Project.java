@@ -4,41 +4,48 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Document("projects")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Project {
-	private ObjectId id;
+	@Id
+	private ObjectId _id;
 	private Integer projectId;
 	private String projectName;
 	private LocalDateTime dateCreated;
 	private LocalDateTime dateUpdated;
 	private LocalDateTime dateCompleted;
-	@DocumentReference
-	private List<Task> tasks;
+	private List<ObjectId> tasks;
 	private List<Integer> tags;
 	private String description;
 	private LocalDateTime age;
 	
 	public Project(String projectName, String description) {
 		super();
+		this.projectName = projectName;
 		this.description = description;
 	}
 
-	public ObjectId getId() {
-		return id;
+
+
+	public ObjectId get_id() {
+		return _id;
 	}
 
-	public void setId(ObjectId id) {
-		this.id = id;
+
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
+
+
 
 	public Integer getProjectId() {
 		return projectId;
@@ -72,11 +79,11 @@ public class Project {
 		this.dateCompleted = dateCompleted;
 	}
 
-	public List<Task> getTasks() {
+	public List<ObjectId> getTasks() {
 		return tasks;
 	}
 
-	public void setTasks(List<Task> tasks) {
+	public void setTasks(List<ObjectId> tasks) {
 		this.tasks = tasks;
 	}
 
